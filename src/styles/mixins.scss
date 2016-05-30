@@ -1,0 +1,53 @@
+@import "vars";
+
+@mixin ghostVerticalAlign() {
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: .1px;
+  }
+}
+
+@mixin resp($px) {
+  @media only screen and (max-width: $px + px) {
+    @content;
+  }
+}
+
+@mixin resp-height($px) {
+  @media only screen and (max-height: $px + px) {
+    @content;
+  }
+}
+
+@mixin isMobile {
+  @media only screen and (max-width: $max-mobile) {
+    @content;
+  }
+}
+
+@mixin isTablet {
+  @media only screen and (min-width: $min-tablet) and (max-width: $max-tablet) {
+    @content;
+  }
+}
+
+@mixin isMaxTablet {
+  @media only screen and (max-width: $max-tablet) {
+    @content;
+  }
+}
+
+@mixin isDesktop {
+  @media only screen and (min-width: $min-desktop) {
+    @content;
+  }
+}
+
+@mixin isWide {
+  @media only screen and (min-width: $widescreen) {
+    @content;
+  }
+}

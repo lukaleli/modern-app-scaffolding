@@ -1,0 +1,12 @@
+@import "defaults";
+@import "normalize";
+@import "vars";
+@import "mixins";
+@import "colors";
+
+html, body {
+  background: $navy;
+  border-radius: 5px;
+  transition: all .5s ease-in-out;
+  display: flex;
+}
