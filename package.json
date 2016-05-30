@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p",
-    "build-sourcemaps": "webpack -p -d",
+    "build": "webpack --progress -p",
+    "build-sourcemaps": "webpack --progress -p -d",
     "start": "webpack-dev-server"
   },
   "author": "jimmyweb",
@@ -16,16 +16,13 @@
     "clean-webpack-plugin": "^0.1.9",
     "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^1.0.1",
     "node-sass": "^3.7.0",
     "postcss-loader": "^0.9.1",
     "precss": "^1.4.0",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
-  },
-  "dependencies": {
+    "webpack-dev-server": "^1.14.1",
     "extract-text-webpack-plugin": "^1.0.1"
   }
 }
