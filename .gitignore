@@ -2,7 +2,5 @@
 .DS_Store
 .idea
 *.iml
-/dist/*.js
-/dist/*.css
-/dist/*.map
+/dist/*
 /node_modules

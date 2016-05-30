@@ -1,4 +1,6 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin'),
+    CopyWebpackPlugin = require('copy-webpack-plugin'),
+    CleanWebpackPlugin = require('clean-webpack-plugin'),
     precss = require('precss'),
     autoprefixer = require('autoprefixer');
 
@@ -12,11 +14,11 @@ module.exports = {
         loaders: [
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader")/*"style-loader!css-loader!postcss-loader"*/
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader")
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader")/*"style-loader!css-loader!postcss-loader"*/
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader")
             }
         ]
     },
@@ -27,7 +29,14 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin('style.css', {
             allChunks: true
-        })
+        }),
+        new CopyWebpackPlugin([
+            {
+                from: "index.html",
+                to: "index.html"
+            }
+        ]),
+        new CleanWebpackPlugin(['dist'])
     ],
     postcss: [precss, autoprefixer({browsers: ['> 5%']})]
 };
