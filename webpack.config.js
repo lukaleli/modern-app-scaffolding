@@ -14,11 +14,15 @@ module.exports = {
         loaders: [
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader")
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader")
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
+            },
+            {
+                test: /\.(jpg|png)$/,
+                loader: 'file?name=assets/[name].[hash].[ext]'
             }
         ]
     },
@@ -32,8 +36,7 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             {
-                from: "index.html",
-                to: "index.html"
+                from: './src/index.html'
             }
         ]),
         new CleanWebpackPlugin(['dist'])
